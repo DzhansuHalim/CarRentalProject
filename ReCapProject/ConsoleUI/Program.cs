@@ -11,59 +11,39 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             GetCarTest();
-            GetColorTest();
-            GetBrandTest();
+            //GetColorTest();
+            //GetBrandTest();
 
         }
 
         private static void GetBrandTest()
         {
             Console.WriteLine("====================== Brands ======================");
-
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            Brand brand1 = new Brand()
+            foreach (var brand in brandManager.GetAll())
             {
-                BrandName = "Volvo"
-            };
-            //foreach (var brand in brandManager.GetAll())
-            //{
-            //    Console.WriteLine(brand.BrandName);
-            //}
+                Console.WriteLine(brand.BrandName);
+            }
         }
 
         private static void GetColorTest()
         {
             Console.WriteLine("====================== Colors ======================");
-
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            Color color1 = new Color()
+            foreach (var color in colorManager.GetAll())
             {
-                ColorName = "Red"
-            };
-            colorManager.Create(color1);
-            //foreach (var color in colorManager.GetAll())
-            //{
-            //    Console.WriteLine(color.ColorName);
-            //}
+                Console.WriteLine(color.ColorName);
+            }
         }
 
         private static void GetCarTest()
         {
             Console.WriteLine("====================== Cars ======================");
             CarManager carManager = new CarManager(new EfCarDal());
-            Car car1 = new Car()
+            foreach (var car in carManager.GetCarDetails())
             {
-                BrandId = 0,
-                ColorId = 0,
-                DailyPrice = 8.9,
-                ModelYear = 1980,
-                DescriptionCar = "Wow"
-            };
-            carManager.Create(car1);
-            //foreach (var car in carManager.GetAll())
-            //{
-            //    Console.WriteLine(car.DescriptionCar);
-            //}
+                Console.WriteLine(car.BrandName + "\n Description: " + car.CarDescription + "\n Color: " + car.ColorName + "\r\n");
+            }
         }
     }
 }
