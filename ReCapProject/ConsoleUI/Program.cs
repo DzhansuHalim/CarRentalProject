@@ -11,26 +11,35 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             GetCarTest();
-            //GetColorTest();
-            //GetBrandTest();
-
+            GetColorTest();
+            GetBrandTest();
         }
 
         private static void GetBrandTest()
         {
             Console.WriteLine("====================== Brands ======================");
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var brand in brandManager.GetAll())
+
+            var result = brandManager.GetAll();
+            if (result.Success)
             {
-                Console.WriteLine(brand.BrandName);
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.BrandName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message); 
+            }
+
         }
 
         private static void GetColorTest()
         {
             Console.WriteLine("====================== Colors ======================");
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
@@ -40,7 +49,7 @@ namespace ConsoleUI
         {
             Console.WriteLine("====================== Cars ======================");
             CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine(car.BrandName + "\n Description: " + car.CarDescription + "\n Color: " + car.ColorName + "\r\n");
             }
