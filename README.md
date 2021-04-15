@@ -1,6 +1,6 @@
 # CarRental_Project
 
-1.Basic expressions
+1. Basic expressions
     <ul>     
       <li>Variables</li>
       <li>Ref, Out, Params</li>
