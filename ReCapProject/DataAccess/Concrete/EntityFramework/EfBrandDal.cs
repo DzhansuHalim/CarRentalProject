@@ -1,4 +1,4 @@
-﻿using Core.DataAccess.EntitiyFramework;
+﻿using Core.DataAccess.Concrete.EntitiyFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
