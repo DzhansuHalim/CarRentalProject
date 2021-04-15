@@ -15,6 +15,7 @@
         <li>Create Databse, Tables</li>
         <li>Add items to the list, get item from the list</li>
         <li>CRUD</li>
+        <li> Entity Framework</li>
         <li>LINQ</li>
       </ul>
      
@@ -24,10 +25,12 @@
         <li>ConsoleUI</li>
         <li>Core</li>
         <li>Data Access</li>
-            <li> Entity Framework</li>
         <li>Entities</li>
       </ul>
       
-      <li>WebAPI</li>
+4. API
+      <ul>
+          <li>WebAPI</li>
+      </ul>
       
  
