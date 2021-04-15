@@ -10,13 +10,13 @@
       <li>Dependency Injection</li> 
     </ul>
 2. SQL
-  <ul>
-    <li>Create Databse, Tables</li>
-    <li>Add items to the list, get item from the list</li>
-    <li>CRUD</li>
-    <li>LINQ</li>
-  </ul>
-
+      <ul>
+        <li>Create Databse, Tables</li>
+        <li>Add items to the list, get item from the list</li>
+        <li>CRUD</li>
+        <li>LINQ</li>
+      </ul>
+     
 3. NET Application Architecture
   <ul>
     <li>Business</li>
