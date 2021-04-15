@@ -32,5 +32,12 @@
       <ul>
           <li>WebAPI</li>
       </ul>
+     
+5. Data Validation
+    <ul>
+        <li>Autofac</li>
+        <li>FluentValidation</li>
+        <li>AOP / ValidationAspect</li>    
+    </ul>
       
  
