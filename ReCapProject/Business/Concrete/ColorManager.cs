@@ -7,6 +7,8 @@ using System;
 using Business.Constants;
 using System.Collections.Generic;
 using System.Text;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -19,12 +21,10 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Create(Color color)
         {
-            if (color.ColorName.Length < 2)
-            {
-                return new ErrorResult(Messages.InvalidColorName);
-            }
             _colorDal.Create(color);
             return new SuccessResult(Messages.ColorAdded);
         }
