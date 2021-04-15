@@ -1,6 +1,6 @@
 # CarRental_Project
 
-1. Basic expressions
+1. <b>Basic expressions</b>
     <ul>     
       <li>Variables</li>
       <li>Ref, Out, Params</li>
@@ -10,7 +10,7 @@
       <li>Dependency Injection</li> 
     </ul>
     
-2. SQL
+2. <b>SQL</b>
       <ul>
         <li>Create Databse, Tables</li>
         <li>Add items to the list, get item from the list</li>
@@ -19,7 +19,7 @@
         <li>LINQ</li>
       </ul>
      
-3. NET Application Architecture
+3. <b>NET Application Architecture</b>
       <ul>
         <li>Business</li>
         <li>ConsoleUI</li>
@@ -28,12 +28,12 @@
         <li>Entities</li>
       </ul>
       
-4. API
+4. <b>API</b>
       <ul>
-          <li>WebAPI</li>
+          <li>WebAPI (CRUD)</li>
       </ul>
      
-5. Data Validation
+5. <b>Data Validation</b>
     <ul>
         <li>Autofac</li>
         <li>FluentValidation</li>
