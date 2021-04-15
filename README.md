@@ -9,6 +9,7 @@
       <li>Interface</li>
       <li>Dependency Injection</li> 
     </ul>
+    
 2. SQL
       <ul>
         <li>Create Databse, Tables</li>
@@ -18,13 +19,14 @@
       </ul>
      
 3. NET Application Architecture
-  <ul>
-    <li>Business</li>
-    <li>ConsoleUI</li>
-    <li>Core</li>
-    <li>Data Access<li> Entity Framework</li></li>
-    <li>Entities</li>
-  </ul>
+      <ul>
+        <li>Business</li>
+        <li>ConsoleUI</li>
+        <li>Core</li>
+        <li>Data Access</li>
+            <li> Entity Framework</li>
+        <li>Entities</li>
+      </ul>
       
       <li>WebAPI</li>
       
