@@ -41,6 +41,7 @@ namespace Business.Constants
         public static string RentalDeleted = "The rental is deleted";
         public static string RentalUpdated = "The rental is updated";
 
-
+        //CarImages
+        public static string ImagesLimitExceded = "The limit of images are exceded";
     }
 }
