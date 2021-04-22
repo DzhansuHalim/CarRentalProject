@@ -40,4 +40,10 @@
         <li>AOP / ValidationAspect</li>    
     </ul>
       
+6. <b>Security (User registration and login)</b>
+    <ul>
+        <li>Encryption </li>
+        <li>Hashing </li>
+        <li>JWT</li>    
+    </ul>
  
