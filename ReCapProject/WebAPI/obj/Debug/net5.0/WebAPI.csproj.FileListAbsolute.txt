@@ -21,7 +21,6 @@ C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\b
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -66,3 +65,4 @@ C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\b
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Autofac.Extras.DynamicProxy.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

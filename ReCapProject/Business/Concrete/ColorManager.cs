@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Aspects.Autofac.Validation;
 using Business.ValidationRules.FluentValidation;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -22,6 +23,7 @@ namespace Business.Concrete
         }
 
 
+        [SecuredOperation("color.add,admin")]
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Create(Color color)
         {

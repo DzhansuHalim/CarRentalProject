@@ -6,6 +6,7 @@ USE CarRental
 GO
 
 
+
 ALTER TABLE Cars
 	ADD CONSTRAINT fk_colorid
 		FOREIGN KEY (ColorId) REFERENCES Colors(ColorId)
@@ -34,3 +35,14 @@ ALTER TABLE Rentals
 ALTER TABLE CarImages 
 	ADD CONSTRAINT fk_carImageid
 		FOREIGN KEY (CarId) REFERENCES Cars(CarId)
+
+
+ALTER TABLE UserOperationClaims 
+	ADD CONSTRAINT fk_userRegisterId
+		FOREIGN KEY (UserId) REFERENCES UsersRegister(Id)
+
+
+
+ALTER TABLE UserOperationClaims 
+	ADD CONSTRAINT fk_operationClaimId
+		FOREIGN KEY (OperationClaimId) REFERENCES OperationClaims(Id)
