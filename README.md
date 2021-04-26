@@ -48,9 +48,9 @@
     </ul>
     
 7. <b>Aspects (Autofac)</b>
-<ul>
-    <li>Caching</li>
-    <li>Performance</li>
-    <li>Transaction</li>
-    <li>Validation</li>   
-</ul>
+    <ul>
+        <li>Caching</li>
+        <li>Performance</li>
+        <li>Transaction</li>
+        <li>Validation</li>   
+    </ul>
