@@ -23,7 +23,7 @@ namespace Business.Concrete
         }
 
 
-        [SecuredOperation("color.add,admin")]
+        //[SecuredOperation("admin")]
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Create(Color color)
         {
