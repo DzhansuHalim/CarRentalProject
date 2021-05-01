@@ -54,3 +54,9 @@
         <li>Transaction</li>
         <li>Validation</li>   
     </ul>
+8. <b>Frontend Angular</b>
+    <ul>
+        <li>Components</li>
+        <li>Models</li>
+        <li>Services</li>   
+    </ul>
