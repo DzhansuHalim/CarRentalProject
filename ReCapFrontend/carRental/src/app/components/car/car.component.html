@@ -9,7 +9,9 @@
             <th>Description</th>
         </tr>
     </thead>
-    <tr *ngFor = "let car of cars">
+    <tr (click) = "setCurrentCar(car)"
+     *ngFor =  "let car of cars"
+        routerLink = "/cars/carDetails/{{car.carId}}">
         <td>{{car.carId}}</td>
         <td>{{car.brandId}}</td>
         <td>{{car.colorId}}</td>
@@ -18,3 +20,4 @@
         <td>{{car.descriptionCar}}</td>
     </tr>
 </table>
+<p *ngIf = "currentCar">{{currentCar.carId}} selected</p>

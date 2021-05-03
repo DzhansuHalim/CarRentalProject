@@ -11,16 +11,38 @@ export class ColorComponent implements OnInit {
 
 
   colors : Color[] = [];
+  currentColor : Color;
   constructor( private colorService:ColorService) { }
 
   ngOnInit(): void {
-    this.getBrands();
+    this.getColors(); 
   }
 
-  getBrands(){
+  getColors(){
     this.colorService.getColors().subscribe(response => {
       this.colors = response.data;
     })
+  }
+
+  setCurrentColor( color : Color){
+    this.currentColor = color;
+  }
+
+  getCurrentColorClass(color : Color){
+    if(color == this.currentColor){
+      return "list-group-item active list-group-item-action"
+    }else{
+      return "list-group-item list-group-item-action"
+    }
+  }
+
+
+  getAllColorClass(){ 
+    if(!this.currentColor){
+      return "list-group-item active list-group-item-action"
+    }else{
+      return "list-group-item list-group-item-action"
+    }
   }
 
 }

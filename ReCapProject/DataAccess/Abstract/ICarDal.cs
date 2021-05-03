@@ -13,6 +13,7 @@ namespace DataAccess.Abstract
     {
         // Join, select, from...
 
-        List<CarDetailDto> GetCarDetails();
+        List<CarDetailDto> GetCarDetails(Expression<Func<CarDetailDto, bool>> filter = null);
+
     }
 }

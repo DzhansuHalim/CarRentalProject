@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tr *ngFor = "let carDetail of carDetails">
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.carDescription}}</td>
+    </tr>
+</table> 

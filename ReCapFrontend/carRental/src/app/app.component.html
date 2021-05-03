@@ -1,29 +1,35 @@
 <div class="container">
   <app-navi></app-navi>
-
-  <p><em>Car informations</em></p>
-  <app-car></app-car>
-
-  <p><em>Rental informations</em></p>
-  <app-rental></app-rental>
   <div class="row">
     <div class="col-md-6">
-      <p><em>Brand informations</em></p>
+      <b><em>Brands</em></b>
       <app-brand></app-brand>
     </div>
     <div class="col-md-6">
-      <p><em>Color informations</em></p>
+      <b><em>Colors</em></b>
       <app-color></app-color>    
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <b><em>Cars</em></b>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <b><em>Car details</em></b>
+      <app-car-detail></app-car-detail>
+    </div>
+  </div> -->
 
 
-
+<!-- <p><em>Rental informations</em></p>
+  <app-rental></app-rental> -->
+<!-- 
   <p><em>Customer informations</em></p>
   <app-customer></app-customer>
 
   <p><em>User informations</em></p>
-  <app-user></app-user>
-
-  <router-outlet></router-outlet>
+  <app-user></app-user> -->
 </div>
