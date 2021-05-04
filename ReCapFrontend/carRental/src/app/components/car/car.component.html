@@ -10,8 +10,7 @@
         </tr>
     </thead>
     <tr (click) = "setCurrentCar(car)"
-     *ngFor =  "let car of cars"
-        routerLink = "/cars/carDetails/{{car.carId}}">
+     *ngFor =  "let car of cars">
         <td>{{car.carId}}</td>
         <td>{{car.brandId}}</td>
         <td>{{car.colorId}}</td>

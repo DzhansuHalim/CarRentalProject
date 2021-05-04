@@ -25,11 +25,13 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarId = c.CarId,
                                  CarDescription = c.DescriptionCar,
                                  BrandName = b.BrandName,
+                                 BrandId = b.BrandId,
+                                 ColorId = clr.ColorId,
                                  ColorName = clr.ColorName,
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
                                  CarImage = (from i in context.CarImages
-                                             where (c.ColorId == i.CarId)
+                                             where (c.CarId == i.CarId)
                                              select i.ImagePath).FirstOrDefault()
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();

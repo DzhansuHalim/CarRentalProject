@@ -4,11 +4,35 @@
             <th>Brand</th>
             <th>Color</th>
             <th>Description</th>
+            <th>Model year</th>
+            <th>Daily price</th>
         </tr>
     </thead>
     <tr *ngFor = "let carDetail of carDetails">
         <td>{{carDetail.brandName}}</td>
         <td>{{carDetail.colorName}}</td>
         <td>{{carDetail.carDescription}}</td>
+        <td>{{carDetail.modelYear}}</td>
+        <td>{{carDetail.dailyPrice}}</td>
     </tr>
 </table> 
+
+<div class="d-flex justify-content-evenly">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded" 
+        *ngFor = "let carDetail of carDetails">
+        <img
+            src="https://localhost:44394/Images/{{carDetail.carImage}}"
+            class="card-img-top"
+            alt="..."
+        />
+        <ul class="list-group">
+            <li class="list-group-item">Brand: {{carDetail.brandName}}</li>
+        </ul>
+       
+    </div>
+</div>
+
+
+
+
+

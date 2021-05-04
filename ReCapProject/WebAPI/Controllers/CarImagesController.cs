@@ -70,6 +70,20 @@ namespace WebAPI.Controllers
         }
 
 
+        //[HttpGet("getfilebyid")]
+        //public IActionResult GetFileById(int id)
+        //{
+        //    var result = _carImageService.GetById(id);
+
+        //    if (result.Success)
+        //    {
+        //        Byte[] b = System.IO.File.ReadAllBytes(result.Data.ImagePath);
+        //        return File(b, "image/jpeg");
+        //    }
+
+        //    return BadRequest(result);
+        //}
+
 
         [HttpPut("update")]
         public IActionResult Update(IFormFile file,CarImage carImage)

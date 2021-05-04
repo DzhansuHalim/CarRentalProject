@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Controllers\AuthController.cs" />
+    <Content Include="Controllers\BrandsController.cs" />
+    <Content Include="Controllers\CarImagesController.cs" />
+    <Content Include="Controllers\CarsController.cs" />
+    <Content Include="Controllers\ColorsController.cs" />
+    <Content Include="Controllers\CustomersController.cs" />
+    <Content Include="Controllers\RentalsController.cs" />
+    <Content Include="Controllers\UsersController.cs" />
+    <Content Include="Controllers\WeatherForecastController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -19,7 +31,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Images\" />
+    <None Include="wwwroot\Images\15671711bf214d45809c189c474d3472_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\1addfcb5f4e841eaaed54872bc4dd3a6_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\2d635f081fe448feadfc282e20c93ea9_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\33e3caa60b2a429caf94bcaa43020ee6_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\86d3aad7da824e22b3691fc8cde9050c_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\9739cef5da5a4a5d8b3033e78aea8165_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\a5cc373e-4332-4e1d-a6b9-49061c97860b_5_4_2021.jpeg" />
+    <None Include="wwwroot\Images\ddd835fbe6164f12a0acc4194b4f88d8_4_16_2021.jpg" />
+    <None Include="wwwroot\Images\default.jpg" />
+    <None Include="wwwroot\Images\e17e8c4d-fec5-4aa7-b863-9a806b9ee835_5_4_2021.jpeg" />
+    <None Include="wwwroot\Images\ea1a86dd-8bca-498a-a2f6-e09f6c410b31_5_4_2021.jpeg" />
   </ItemGroup>
 
 </Project>

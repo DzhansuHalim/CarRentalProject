@@ -15,6 +15,8 @@ namespace Entities.DTO_s
         public int ModelYear { get; set; }
         public double DailyPrice { get; set; }
         public string CarImage { get; set; }
+        public int BrandId { get; set; }
+        public int ColorId { get; set; }
 
     }
 }

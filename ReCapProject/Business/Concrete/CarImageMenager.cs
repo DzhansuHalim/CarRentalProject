@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Core.Utilities.Helper;
+using System.Linq;
 
 namespace Business.Concrete
 {
@@ -31,16 +32,8 @@ namespace Business.Concrete
             {
                 return result;
             }
-            var resultUpload = FileHelper.Upload(file, FileConstants.FileImageExtensions, FileConstants.RescourceFolderName, FileConstants.ImageFolderName);
-            if (!resultUpload.Item1.Success)
-            {
-                return resultUpload.Item1;
-            }
-
-
-            carImage.ImagePath = resultUpload.dbPath;
+            carImage.ImagePath = FileHelper.Add(file);
             carImage.UploadDate = DateTime.Now;
-
             _carImageDal.Create(carImage);
             return new SuccessResult();
         }
@@ -48,8 +41,10 @@ namespace Business.Concrete
 
         public IResult Delete(IFormFile file, CarImage carImage)
         {
+            FileHelper.Delete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult();
+
         }
 
         public IDataResult<List<CarImage>> GetAll()
@@ -64,19 +59,18 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetImagesByCarId(int id)
         {
-            var result = _carImageDal.GetAll(c => c.CarId == id);
-            if (result.Count == 0)
-            {
-                result.Add(new CarImage { ImagePath = FileConstants.DefaultImagePath });
-            }
-            return new SuccessDataResult<List<CarImage>>(result);
+     
+            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
 
         }
 
         public IResult Update(IFormFile file,CarImage carImage)
         {
+            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.CarId == carImage.CarImageId).ImagePath, file);
+            carImage.UploadDate = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult();
+
         }
 
 
@@ -91,5 +85,17 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
+
+        private List<CarImage> CheckIfCarImageNull(int id)
+        {
+            string path = @"default.jpg";
+            var result = _carImageDal.GetAll(c => c.CarId == id).Any();
+            if (!result)
+            {
+                return new List<CarImage> { new CarImage { CarId = id, ImagePath = path, UploadDate = DateTime.Now } };
+            }
+            return _carImageDal.GetAll(p => p.CarId == id);
+        }
+
     }
 }

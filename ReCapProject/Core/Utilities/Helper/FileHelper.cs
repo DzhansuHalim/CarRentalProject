@@ -11,58 +11,57 @@ namespace Core.Utilities.Helper
 {
     public class FileHelper
     {
-        public static (IResult, string dbPath) Upload(IFormFile file, string[] checkExtensions, params string[] folderNames)
+        public static string Add(IFormFile file)
         {
-            var fileExtension = Path.GetExtension(file.FileName);
-            IResult result = BusinessRules.Run(
-                                             CheckFileIsEmpty(file),
-                                             CheckFileTypeValid(fileExtension, checkExtensions));
-            if (result != null)
+            var sourcepath = Path.GetTempFileName();
+            if (file.Length > 0)
             {
-                return (result, null);
-            }
-
-            // Gecerli ve dolu bir dosya geldi. Islemlere devam
-
-            var folderName = Path.Combine(folderNames);
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-            var creatingUniqueFilename = Guid.NewGuid().ToString("N")  // 0f8fad5bd9cb469fa16570867728950e
-               + "_" + DateTime.Now.Month + "_"
-               + DateTime.Now.Day + "_"
-               + DateTime.Now.Year + fileExtension;
-
-            var fullPath = Path.Combine(pathToSave, creatingUniqueFilename);
-            var dbPath = Path.Combine(folderName, creatingUniqueFilename);
-            using (var stream = new FileStream(fullPath, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-            return (new SuccessResult(), dbPath);
-        }
-
-        private static IResult CheckFileIsEmpty(IFormFile file)
-        {
-            if (file != null)
-            {
-                if (file.Length > 0)
+                using (var stream = new FileStream(sourcepath, FileMode.Create))
                 {
-                    return new SuccessResult("File is empty");
+                    file.CopyTo(stream);
                 }
             }
-            return new ErrorResult();
+            var result = newPath(file);
+            File.Move(sourcepath, result.newPath);
+            return result.Path2.Replace("\\", "/");
         }
-
-        private static IResult CheckFileTypeValid(string fileExtension, string[] checkExtensions)
+        public static IResult Delete(string path)
         {
-            foreach (var fileExt in checkExtensions)
+            path = path.Replace("/", "\\");
+            try
             {
-                if (fileExt == fileExtension)
+                File.Delete(path);
+            }
+            catch (Exception exception)
+            {
+                return new ErrorResult(exception.Message);
+            }
+
+            return new SuccessResult();
+        }
+        public static string Update(string sourcePath, IFormFile file)
+        {
+            var result = newPath(file);
+            if (sourcePath.Length > 0)
+            {
+                using (var stream = new FileStream(result.newPath, FileMode.Create))
                 {
-                    return new SuccessResult();
+                    file.CopyTo(stream);
                 }
             }
-            return new ErrorResult("WrongFileType");
+            File.Delete(sourcePath);
+            return result.Path2.Replace("\\", "/");
+        }
+        public static (string newPath, string Path2) newPath(IFormFile file)
+        {
+            FileInfo ff = new FileInfo(file.FileName);
+            string fileExtension = ff.Extension;
+
+            string path = Environment.CurrentDirectory + @"\wwwroot\images";
+            var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
+
+            string result = $@"{path}\{newPath}";
+            return (result, $"{newPath}");
         }
     }
 }
