@@ -14,7 +14,8 @@ export class CarDetailComponent implements OnInit {
  
   carDetails : CarDeatils[] = []; 
   carImages : CarImage[];
-  imageBasePath:"https://localhost:44394/images/";
+  imageBasePath:"https://localhost:44394/";
+  
 
   constructor( private carDetailService:CarDetailService, 
     private activatedRoute:ActivatedRoute,
@@ -75,4 +76,5 @@ export class CarDetailComponent implements OnInit {
       return 'default.jpg'
     }
   }
+
 }

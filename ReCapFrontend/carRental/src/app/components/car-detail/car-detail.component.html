@@ -20,17 +20,20 @@
 <div class="d-flex justify-content-evenly">
     <div class="shadow-lg p-3 mb-5 bg-body rounded" 
         *ngFor = "let carDetail of carDetails">
-        <img
-            src="https://localhost:44394/Images/{{carDetail.carImage}}"
-            class="card-img-top"
-            alt="..."
-        />
+        <img src="{{imageBasePath + carDetail.carImage}}"    class=" card-img-top"
+        width="250"
+        height="200"/>
         <ul class="list-group">
             <li class="list-group-item">Brand: {{carDetail.brandName}}</li>
         </ul>
        
     </div>
 </div>
+
+
+
+
+
 
 
 
