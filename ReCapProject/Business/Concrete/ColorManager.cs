@@ -56,6 +56,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == id));
         }
 
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Update(Color color)
         {
             IResult result = BusinessRules.Run(CheckIfColorNameExists(color.ColorName));

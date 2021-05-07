@@ -1,11 +1,15 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -19,16 +23,17 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Create(Brand brand)
         {
-            //business codes
-            if (brand.BrandName.Length < 4)
-            {
-                //magic strings
-                return new ErrorResult(Messages.InvalidBrandName);
-            }
-            _brandDal.Create(brand);
+            IResult result = BusinessRules.Run(CheckIfBrandNameExists(brand.BrandName));
 
+            if (result != null)
+            {
+                return result;
+            }
+            
+            _brandDal.Create(brand);
             return new SuccessResult(Messages.BrandAdded);
         }
 
@@ -53,10 +58,23 @@ namespace Business.Concrete
             return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == id));
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
             return new SuccessResult(Messages.BrandUpdated);
         }
+
+        //Business rules
+        private IResult CheckIfBrandNameExists(string name)
+        {
+            var result = _brandDal.GetAll(p => p.BrandName == name).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.BrandNameAlreadyExists);
+            }
+            return new SuccessResult();
+        }
+
     }
 }

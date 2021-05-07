@@ -1,0 +1,39 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Add customer</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup] = "customerAddForm">                    
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="userId" formControlName="userId">
+                          <option *ngFor="let user of users" [value]="user.userId">
+                            {{user.firstName}}
+                          </option>
+                        </select>
+                        <label for="userId">User</label>
+                      </div> 
+                    <!-- <div class="mb-3">
+                        <label for="userId">User</label>
+                        <div class="form-group">
+                            <input type="number" id="userId" 
+                            formControlName="userId" class="form-control" placeholder="ex. 1"/>
+                        </div>
+                    </div>    -->
+                    <div class="mb-3">
+                        <label for="company"> Company Name </label>
+                        <div class="form-group">
+                            <input type="text" id="company" 
+                            formControlName="companyName" class="form-control" placeholder="ex. Company"/>
+                        </div>
+                    </div>              
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
+            </div>
+        </div> 
+    </div>  
+</div>
+

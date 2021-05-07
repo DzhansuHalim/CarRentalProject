@@ -14,6 +14,7 @@ export class CarDetailComponent implements OnInit {
  
   carDetails : CarDeatils[] = []; 
   carImages : CarImage[];
+  dataLoaded = false;
   imageBasePath:'https://localhost:44394/';
   
 
@@ -43,6 +44,7 @@ export class CarDetailComponent implements OnInit {
   getCarDetails(){
     this.carDetailService.getCarDetails().subscribe(response => {
       this.carDetails = response.data;
+      this.dataLoaded = true;
     }) 
   }
 

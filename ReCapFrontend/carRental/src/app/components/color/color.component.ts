@@ -12,17 +12,20 @@ export class ColorComponent implements OnInit {
 
   colors : Color[] = [];
   currentColor : Color;
+  dataLoaded = false;
+
   constructor( private colorService:ColorService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getColors(); 
   }
 
   getColors(){
     this.colorService.getColors().subscribe(response => {
       this.colors = response.data;
+      this.dataLoaded = true;
     })
-  }
+  } 
 
   setCurrentColor( color : Color){
     this.currentColor = color;

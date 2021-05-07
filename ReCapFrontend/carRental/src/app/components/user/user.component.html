@@ -2,18 +2,24 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Id</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
-            <th>Password</th>
         </tr>
     </thead>
     <tr *ngFor = "let user of users">
-        <td>{{user.userId}}</td>
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.passwordUser}}</td>
     </tr>
 </table>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-add-user></app-add-user>
+    </div>
+    <div class="col-md-6">
+        <app-login></app-login>   
+    </div>
+</div>
+<p></p>

@@ -15,6 +15,8 @@ namespace Business.Constants
         public static string BrandsListed = "List of all brands";
         public static string MaintenanceTime = "System is under maintenance";
         public static string BrandUpdated = "The brand is updated";
+        public static string BrandNameAlreadyExists = "The brand name already exists";
+
 
         //Car
         public static string CarAdded = "The car is added";
@@ -26,6 +28,8 @@ namespace Business.Constants
         public static string ColorAdded = "The color is added";
         public static string ColorDeleted = "The color is deleted";
         public static string ColorUpdated = "The color is updated";
+        public static string ColorNameAlreadyExists = "The color already exists";
+
 
 
         //User
@@ -55,6 +59,5 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Login was successful";
         public static string UserAlreadyExists = "User is already exist";
         public static string AccessTokenCreated = "The accesstoken is created";
-        public static string ColorNameAlreadyExists = "The color already exists";
     }
 }

@@ -12,7 +12,6 @@
     <Content Include="Controllers\ColorsController.cs" />
     <Content Include="Controllers\CustomersController.cs" />
     <Content Include="Controllers\RentalsController.cs" />
-    <Content Include="Controllers\UsersController.cs" />
     <Content Include="Controllers\WeatherForecastController.cs" />
   </ItemGroup>
 

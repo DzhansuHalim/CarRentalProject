@@ -1,7 +1,6 @@
 export interface User{
     userId:number;
     firstName:string;
-    lastName:string;
+    lastName:string; 
     email:string;
-    passwordUser:string;
-} 
+}  

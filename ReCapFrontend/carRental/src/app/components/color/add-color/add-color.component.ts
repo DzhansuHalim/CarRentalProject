@@ -17,7 +17,7 @@ export class AddColorComponent implements OnInit {
     private colorService : ColorService,
     private toastrService: ToastrService
   ) { }
-
+ 
   ngOnInit(): void {
     this.createColorAddForm();
   }
@@ -28,10 +28,6 @@ export class AddColorComponent implements OnInit {
     })
   }
   
-  showSuccess() {
-    this.toastrService.success('Hello world!', 'Toastr fun!');
-  }
-
   add(){
     if(this.colorAddForm.valid){
       let colorModel = Object.assign({}, this.colorAddForm.value)
@@ -47,10 +43,6 @@ export class AddColorComponent implements OnInit {
         else{
           this.toastrService.error(responseError.error.message)          
         }
-
-        // if(responseError.error.Errors.length>0){
-         
-        // }
 
       })
 
