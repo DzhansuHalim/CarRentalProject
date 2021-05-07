@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sxgqlk5YnG2YyQk9iw8kq99cgdmUfEqs3tif5P27lSCJIAH8wzKC7fk+EAoSqHQRKGPNyVVs2BoIInNY8PWHDg==",
+  "dgSpecHash": "SWuog38cG1x51hBFkRXHEaNYq68XCtCfL6gu2aTHCybZuGytCmb9HigGHbhzfbBiTsTYex8BZAtd2kQ6+vWZXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dzhan\\OneDrive\\Documents\\GitHub\\CarRental_Project\\ReCapProject\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\dzhan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\dzhan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

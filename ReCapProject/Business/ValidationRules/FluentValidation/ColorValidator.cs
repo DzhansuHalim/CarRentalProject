@@ -11,9 +11,9 @@ namespace Business.ValidationRules.FluentValidation
     {
         public ColorValidator()
         {
-            RuleFor(c => c.ColorName).NotEmpty();
-            RuleFor(c => c.ColorName).MinimumLength(3).WithMessage(Messages.InvalidColorName);
-            RuleFor(p => p.ColorName).Must(StartWithA).WithMessage("The color must start with A");
+            RuleFor(c => c.ColorName).NotEmpty().WithMessage("The product can not be null");
+            RuleFor(c => c.ColorName).MinimumLength(3).WithMessage("Invalide color name");
+            //RuleFor(p => p.ColorName).Must(StartWithA).WithMessage("The color must start with A");
 
         }
 

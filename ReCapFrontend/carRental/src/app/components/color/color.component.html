@@ -1,3 +1,4 @@
+<app-navi></app-navi>
 <ul class="list-group">
     <li [class]="getAllColorClass()" routerLink = "/carDetails">All colors</li>
     <li (click) = "setCurrentColor(color)" 
@@ -6,4 +7,7 @@
     [class]="getCurrentColorClass(color)">
         {{color.colorName}}</li>
 </ul>
+<p></p>
+    <app-add-color></app-add-color>
+
 <!-- <p *ngIf = "currentColor">{{currentColor.colorName}} selected</p> --> 

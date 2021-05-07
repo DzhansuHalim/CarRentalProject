@@ -67,3 +67,4 @@ C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\b
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\FluentValidation.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\libman.json
+C:\Users\dzhan\OneDrive\Documents\GitHub\CarRental_Project\ReCapProject\WebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll

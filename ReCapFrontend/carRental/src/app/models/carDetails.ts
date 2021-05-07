@@ -1,3 +1,5 @@
+import { CarImage } from "./carImage";
+
 export interface CarDeatils{
     carId:number;
     brandName:string;
@@ -8,5 +10,4 @@ export interface CarDeatils{
     carImage:string;
     brandId:string;
     colorId:string;
-
 }

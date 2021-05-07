@@ -14,7 +14,7 @@ export class CarDetailComponent implements OnInit {
  
   carDetails : CarDeatils[] = []; 
   carImages : CarImage[];
-  imageBasePath:"https://localhost:44394/";
+  imageBasePath:'https://localhost:44394/';
   
 
   constructor( private carDetailService:CarDetailService, 
@@ -34,6 +34,8 @@ export class CarDetailComponent implements OnInit {
       if(params["id"] ){
         this.getCarImagesById(params["id"])
        }
+
+       this.getCarDetails();
     }) 
   }
 
@@ -68,12 +70,12 @@ export class CarDetailComponent implements OnInit {
     });
   }
 
-  getCarImage(car:CarImage){
-    if(car.imagePath){
-      return car.imagePath
+  getCarImage(car:CarDeatils){
+    if(car.carImage){
+      return 'https://localhost:44394'+car.carImage
     }
     else{
-      return 'default.jpg'
+      return 'https://localhost:44394/Images/default.jpg'
     }
   }
 

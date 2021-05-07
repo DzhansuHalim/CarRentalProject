@@ -13,6 +13,7 @@ namespace Core.Utilities.Helper
     {
         public static string Add(IFormFile file)
         {
+            string path = Environment.CurrentDirectory + @"\wwwroot";
             var sourcepath = Path.GetTempFileName();
             if (file.Length > 0)
             {
@@ -22,15 +23,20 @@ namespace Core.Utilities.Helper
                 }
             }
             var result = newPath(file);
-            File.Move(sourcepath, result.newPath);
-            return result.Path2.Replace("\\", "/");
+            File.Move(sourcepath, path + result);
+            return result.Replace("\\", "/");
         }
+
+
+
+
         public static IResult Delete(string path)
         {
+            string path2 = Environment.CurrentDirectory + @"\wwwroot";
             path = path.Replace("/", "\\");
             try
             {
-                File.Delete(path);
+                File.Delete(path2 + path);
             }
             catch (Exception exception)
             {
@@ -41,27 +47,39 @@ namespace Core.Utilities.Helper
         }
         public static string Update(string sourcePath, IFormFile file)
         {
+            string path = Environment.CurrentDirectory + @"\wwwroot";
             var result = newPath(file);
             if (sourcePath.Length > 0)
             {
-                using (var stream = new FileStream(result.newPath, FileMode.Create))
+                using (var stream = new FileStream(path + result, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
             }
-            File.Delete(sourcePath);
-            return result.Path2.Replace("\\", "/");
+            File.Delete(path + sourcePath);
+            return result.Replace("\\", "/");
+
+            //return result.Path2;
         }
-        public static (string newPath, string Path2) newPath(IFormFile file)
+
+
+
+
+        public static string newPath(IFormFile file)
         {
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
 
-            string path = Environment.CurrentDirectory + @"\wwwroot\images";
-            var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
 
-            string result = $@"{path}\{newPath}";
-            return (result, $"{newPath}");
+            var newPath = Guid.NewGuid().ToString() + fileExtension;
+
+
+            return @"\Images\" + newPath;
         }
+
+
+
+
+
     }
 }

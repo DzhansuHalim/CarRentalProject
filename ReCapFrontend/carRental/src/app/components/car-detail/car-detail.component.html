@@ -1,34 +1,40 @@
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Description</th>
-            <th>Model year</th>
-            <th>Daily price</th>
+<app-navi></app-navi>
+<div routerLink = "/carDetails">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Color</th>
+                <th>Description</th>
+                <th>Model year</th>
+                <th>Daily price</th>
+            </tr>
+        </thead>
+        <tr *ngFor = "let carDetail of carDetails">
+            <td>{{carDetail.brandName}}</td>
+            <td>{{carDetail.colorName}}</td>
+            <td>{{carDetail.carDescription}}</td>
+            <td>{{carDetail.modelYear}}</td>
+            <td>{{carDetail.dailyPrice}}</td>
         </tr>
-    </thead>
-    <tr *ngFor = "let carDetail of carDetails">
-        <td>{{carDetail.brandName}}</td>
-        <td>{{carDetail.colorName}}</td>
-        <td>{{carDetail.carDescription}}</td>
-        <td>{{carDetail.modelYear}}</td>
-        <td>{{carDetail.dailyPrice}}</td>
-    </tr>
-</table> 
-
-<div class="d-flex justify-content-evenly">
-    <div class="shadow-lg p-3 mb-5 bg-body rounded" 
-        *ngFor = "let carDetail of carDetails">
-        <img src="{{imageBasePath + carDetail.carImage}}"    class=" card-img-top"
-        width="250"
-        height="200"/>
-        <ul class="list-group">
-            <li class="list-group-item">Brand: {{carDetail.brandName}}</li>
-        </ul>
-       
+    </table> 
+    
+    <div class="d-flex justify-content-evenly" routerLink = "/carDetails">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded" 
+            *ngFor = "let carDetail of carDetails">
+            <img [src]="getCarImage(carDetail)"  class="img-thumbnail"
+            width="250"
+            height="250"/>
+            <ul class="list-group">
+                <li class="list-group-item">Brand: {{carDetail.brandName}}</li>
+                <li class="list-group-item">Colors: {{carDetail.colorName}}</li>
+                <li class="list-group-item">Description: {{carDetail.carDescription}}</li>
+                <li class="list-group-item">Daily price: {{carDetail.dailyPrice}}</li>
+            </ul>       
+        </div>
     </div>
 </div>
+
 
 
 
