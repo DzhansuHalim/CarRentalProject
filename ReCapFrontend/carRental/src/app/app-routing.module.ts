@@ -11,6 +11,7 @@ import { AddColorComponent } from './components/color/add-color/add-color.compon
 import { ColorComponent } from './components/color/color.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { DetailsComponent } from './components/details/details.component';
 import { IndexComponent } from './components/index/index.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { AddRentalComponent } from './components/rental/add-rental/add-rental.component';
@@ -49,10 +50,10 @@ const routes: Routes = [
 
 
 
-  {path: "carDetails", component:CarDetailComponent},
-  {path: "carDetails/car/:carId", component:CarDetailComponent},
-  {path: "carDetails/brand/:brandId", component:CarDetailComponent},
-  {path: "carDetails/color/:colorId", component:CarDetailComponent},
+  {path: "carDetails", component:IndexComponent},
+  {path: "carDetails/car/:carId", component:IndexComponent},
+  {path: "carDetails/brand/:brandId", component:IndexComponent},
+  {path: "carDetails/color/:colorId", component:IndexComponent},
 
 ];
 

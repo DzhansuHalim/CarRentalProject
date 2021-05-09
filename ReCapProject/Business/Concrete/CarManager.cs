@@ -78,5 +78,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarUpdated);
         }
 
+        public IDataResult<CarDetailDto> GetCarDetail(int carId)
+        {
+            return new SuccessDataResult<CarDetailDto>(_carDal.GetCarDetail(c => c.CarId == carId));
+        }
     }
 }

@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-evenly" >
+    <div class="shadow-lg p-3 mb-5 bg-body rounded"
+        *ngFor = "let carDetail of carDetails">
+        <img [src]="getCarImage(carDetail)"  class="img-thumbnail"
+        width="250"
+        height="250"/>
+        <div class="carousel-item " *ngFor="let image of carImages;  index as i; first as firstImage "
+        [ngClass]="{ active: firstImage }">
+        <img [src]="getCarImage(carDetail)" class="d-block w-100" alt="image.imagePath">
+
+    </div>
+        <ul class="list-group">
+            <li class="list-group-item">Brand: {{carDetail.brandName}}</li>
+            <li class="list-group-item">Colors: {{carDetail.colorName}}</li>
+            <li class="list-group-item">Description: {{carDetail.carDescription}}</li>
+            <li class="list-group-item">Daily price: {{carDetail.dailyPrice}}</li>
+        </ul>       
+    </div>
+</div>
