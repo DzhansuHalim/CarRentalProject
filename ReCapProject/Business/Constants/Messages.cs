@@ -49,6 +49,8 @@ namespace Business.Constants
 
         //CarImages
         public static string ImagesLimitExceded = "The limit of images are exceded";
+        public static string CreatedImage = "The image is created";
+
 
 
         //Security

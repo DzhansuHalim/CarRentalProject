@@ -1,0 +1,14 @@
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-evenly d-flex align-content-start flex-wrap" routerLink = "/carImages">
+            <div class="shadow-lg p-3 mb-5 bg-body rounded " *ngFor = "let carImage of carImages">
+                <img [src]="getCarImage(carImage)"  class="img-thumbnail" width="250" height="250"/>    
+            </div>
+        </div>        
+    </div>
+    <div class="col-md-4">
+        <app-add-image></app-add-image>
+    </div> 
+</div>

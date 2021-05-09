@@ -22,9 +22,9 @@ namespace WebAPI.Controllers
 
         //CRUD
         [HttpPost("add"), DisableRequestSizeLimit]
-        public IActionResult Add(IFormFile file, int id)
+        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
-            CarImage carImage = new CarImage { CarId = id };
+            //CarImage carImage = new CarImage { CarId = id };
             var result = _carImageService.Create(file, carImage);
             if (result.Success)
             {
@@ -86,7 +86,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPut("update")]
-        public IActionResult Update(IFormFile file,CarImage carImage)
+        public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
             var result = _carImageService.Update(file, carImage);
             if (result.Success)
@@ -98,7 +98,7 @@ namespace WebAPI.Controllers
 
 
         [HttpDelete("delete")]
-        public IActionResult Delete(IFormFile file, CarImage carImage)
+        public IActionResult Delete([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
             var result = _carImageService.Delete(file,carImage);
             if (result.Success)

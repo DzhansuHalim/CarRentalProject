@@ -1,17 +1,21 @@
-<app-navi></app-navi>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>User</th>
-            <th>Company name</th>
-        </tr>
-    </thead>
-    <tr *ngFor = "let customer of customers">
-        <td>{{customer.customerId}}</td>
-        <td>{{customer.userId}}</td>
-        <td>{{customer.companyName}}</td>
-    </tr>
-</table>
-<p></p>
-<app-add-customer></app-add-customer>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Company name</th>
+                </tr>
+            </thead>
+            <tr *ngFor = "let customer of customers">
+                <td>{{customer.customerId}}</td>
+                <td>{{customer.userId}}</td>
+                <td>{{customer.companyName}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <app-add-customer></app-add-customer>
+    </div>
+</div>

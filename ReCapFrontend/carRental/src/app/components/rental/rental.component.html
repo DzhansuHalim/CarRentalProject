@@ -1,19 +1,26 @@
-<app-navi></app-navi>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Car</th>
-            <th>Customer</th>
-            <th>Rent date</th>
-            <th>Return Date</th>
-        </tr>
-    </thead>
-    <tr *ngFor = "let rental of rentals">
-        <td>{{rental.rentalId}}</td>
-        <td>{{rental.carId}}</td>
-        <td>{{rental.customerId}}</td>
-        <td>{{rental.rentDate}}</td>
-        <td>{{rental.returnDate}}</td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-md-7">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Car</th>
+                    <th>Customer</th>
+                    <th>Rent date</th>
+                    <th>Return Date</th>
+                </tr>
+            </thead>
+            <tr *ngFor = "let rental of rentals">
+                <td>{{rental.rentalId}}</td>
+                <td>{{rental.carId}}</td>
+                <td>{{rental.customerId}}</td>
+                <td>{{rental.rentDate}}</td>
+                <td>{{rental.returnDate}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <app-add-rental></app-add-rental>
+    </div>
+</div>
+

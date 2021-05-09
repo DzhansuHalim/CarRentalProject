@@ -8,19 +8,12 @@
                 <form [formGroup] = "customerAddForm">                    
                     <div class="form-floating mb-3">
                         <select class="form-select" id="userId" formControlName="userId">
-                          <option *ngFor="let user of users" [value]="user.userId">
-                            {{user.firstName}}
+                          <option *ngFor="let user of users" [ngValue]="user.id">
+                            {{user.firstName}} {{user.lastName}}
                           </option>
                         </select>
-                        <label for="userId">User</label>
+                        <label for="uerId">Users</label>
                       </div> 
-                    <!-- <div class="mb-3">
-                        <label for="userId">User</label>
-                        <div class="form-group">
-                            <input type="number" id="userId" 
-                            formControlName="userId" class="form-control" placeholder="ex. 1"/>
-                        </div>
-                    </div>    -->
                     <div class="mb-3">
                         <label for="company"> Company Name </label>
                         <div class="form-group">

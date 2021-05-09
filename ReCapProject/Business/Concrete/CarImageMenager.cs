@@ -36,7 +36,7 @@ namespace Business.Concrete
             carImage.ImagePath = FileHelper.Add(file);
             carImage.UploadDate = DateTime.Now;
             _carImageDal.Create(carImage);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CreatedImage);
         }
 
 

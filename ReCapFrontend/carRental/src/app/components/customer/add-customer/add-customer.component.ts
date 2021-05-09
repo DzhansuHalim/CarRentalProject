@@ -36,8 +36,8 @@ export class AddCustomerComponent implements OnInit {
 
   createCustomerAddForm(){
     this.customerAddForm = this.formBuilder.group({
+      userId:["", Validators.required],
       companyName:["", Validators.required],
-      userId:["", Validators.required]
     })
   }
 
@@ -45,22 +45,22 @@ export class AddCustomerComponent implements OnInit {
     if(this.customerAddForm.valid){
       let customerModel = Object.assign({}, this.customerAddForm.value)
       console.log(customerModel);
-      // this.customerService.addCustomer(customerModel).subscribe(response => {
-      //   this.toastrService.success(response.message)
-      // }, responseError=>{
-      //   console.log(responseError.error.message);
-      //   this.toastrService.error(responseError.error.message)          
+      this.customerService.addCustomer(customerModel).subscribe(response => {
+        this.toastrService.success(response.message)
+      }, responseError=>{
+        console.log(responseError.error.message);
+        this.toastrService.error(responseError.error.message)          
 
-      //   // if(responseError.error.message == null){
-      //   //   for (let i = 0; i < responseError.error.Errors.length; i++) {
-      //   //     this.toastrService.error(responseError.error.Errors[i].ErrorMessage)          
-      //   //   }
-      //   // }
-      //   // else{
-      //   //   this.toastrService.error(responseError.error.message)          
-      //   // }
+        if(responseError.error.message == null){
+          for (let i = 0; i < responseError.error.Errors.length; i++) {
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage)          
+          }
+        }
+        else{
+          this.toastrService.error(responseError.error.message)          
+        }
 
-      // })
+      })
 
     }else{
       this.toastrService.error("The form is invalid!")

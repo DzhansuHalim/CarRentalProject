@@ -1,0 +1,68 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Add car</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup] = "rentalAddForm">  
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="car" formControlName="carId">
+                          <option *ngFor="let car of cars" [ngValue]="car.carId">
+                              {{car.carId}} {{car.descriptionCar}}
+                          </option>
+                        </select>
+                        <label for="car">Cars</label>
+                      </div>
+
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="customer" formControlName="customerId">
+                          <option *ngFor="let customer of customers" [ngValue]="customer.customerId">
+                            {{customer.companyName}}
+                          </option>
+                        </select>
+                        <label for="customer">Customer</label>
+                      </div>
+
+                        <!-- 
+                            https://www.freakyjolly.com/angular-material-109-datepicker-timepicker-tutorial/ 
+                            https://danielykpan.github.io/date-time-picker/
+                        -->                
+                       
+                      <div class="mb-3">
+                        <mat-form-field>
+                            <label>Select a rent date</label>
+                            <input matInput [ngxMatDatetimePicker]="start" placeholder=""
+                            formControlName="rentDate" [min]="today">
+                            <mat-datepicker-toggle matSuffix [for]="$any(start)"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #start>
+                            </ngx-mat-datetime-picker>
+                        </mat-form-field>  
+                        </div>  
+                        <div class="mb-3">
+                            <mat-form-field>
+                                <label>Select a return date</label>
+                                <input matInput [ngxMatDatetimePicker]="end" placeholder=""
+                                formControlName="returnDate" [min]="min">
+                                <mat-datepicker-toggle matSuffix 
+                                    [for]=" $any(end)">
+                                </mat-datepicker-toggle>
+                                <ngx-mat-datetime-picker #end>
+                                </ngx-mat-datetime-picker>
+                            </mat-form-field>
+                        </div>  
+
+                  
+                        
+                        
+                </form> 
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
+            </div>
+        </div>
+    </div>  
+</div>
+
+
+

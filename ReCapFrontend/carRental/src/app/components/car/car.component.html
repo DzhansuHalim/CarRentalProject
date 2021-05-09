@@ -1,25 +1,29 @@
-<app-navi></app-navi>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>Model year</th>
-            <th>Daily price</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tr (click) = "setCurrentCar(car)"
-     *ngFor =  "let car of cars">
-        <td>{{car.carId}}</td>
-        <td>{{car.brandId}}</td>
-        <td>{{car.colorId}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice}}</td>
-        <td>{{car.descriptionCar}}</td>
-    </tr>
-</table>
-<p></p>
-<app-add-car></app-add-car>
-<p></p>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Brand</th>
+                    <th>Color</th>
+                    <th>Model year</th>
+                    <th>Daily price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tr (click) = "setCurrentCar(car)"
+             *ngFor =  "let car of cars">
+                <td>{{car.carId}}</td>
+                <td>{{car.brandId}}</td>
+                <td>{{car.colorId}}</td>
+                <td>{{car.modelYear}}</td>
+                <td>{{car.dailyPrice}}</td>
+                <td>{{car.descriptionCar}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <app-add-car></app-add-car>
+    </div> 
+</div>

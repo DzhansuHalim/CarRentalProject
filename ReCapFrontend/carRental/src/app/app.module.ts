@@ -5,6 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
+//For the datepicker
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
@@ -23,6 +33,10 @@ import { LoginComponent } from './components/user/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
+import { CarImageComponent } from './components/car-image/car-image.component';
+import { AddImageComponent } from './components/car-image/add-image/add-image.component';
+import { AddRentalComponent } from './components/rental/add-rental/add-rental.component';
+import { IndexComponent } from './components/index/index.component';
 
 
 @NgModule({
@@ -42,6 +56,10 @@ import { AddCustomerComponent } from './components/customer/add-customer/add-cus
     LoginComponent,
     AddCarComponent,
     AddCustomerComponent,
+    CarImageComponent,
+    AddImageComponent,
+    AddRentalComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +70,17 @@ import { AddCustomerComponent } from './components/customer/add-customer/add-cus
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
-    })
+    }),
+    MatDatepickerModule,
+    MatInputModule,
+
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
+
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}

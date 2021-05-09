@@ -35,7 +35,7 @@ export class AddBrandComponent implements OnInit {
       this.brandService.addBrand(brandModel).subscribe(response => {
         this.toastrService.success(response.message)
       }, responseError=>{
-
+  
         if(responseError.error.message == null){
           for (let i = 0; i < responseError.error.Errors.length; i++) {
             this.toastrService.error(responseError.error.Errors[i].ErrorMessage)          

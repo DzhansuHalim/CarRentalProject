@@ -21,6 +21,7 @@ export class CustomerService {
 
   addCustomer(customer : Customer): Observable<ResponseModel>{
     let newPath = this.apiUrl + "/add"
+    this.getCustomers();
     return this.httpClient.post<ResponseModel>(newPath, customer)
   }
 }
