@@ -11,7 +11,6 @@ import { AddColorComponent } from './components/color/add-color/add-color.compon
 import { ColorComponent } from './components/color/color.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { DetailsComponent } from './components/details/details.component';
 import { IndexComponent } from './components/index/index.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { AddRentalComponent } from './components/rental/add-rental/add-rental.component';

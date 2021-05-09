@@ -37,7 +37,6 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { AddImageComponent } from './components/car-image/add-image/add-image.component';
 import { AddRentalComponent } from './components/rental/add-rental/add-rental.component';
 import { IndexComponent } from './components/index/index.component';
-import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
@@ -61,7 +60,7 @@ import { DetailsComponent } from './components/details/details.component';
     AddImageComponent,
     AddRentalComponent,
     IndexComponent,
-    DetailsComponent,
+    
   ],
   imports: [
     BrowserModule,

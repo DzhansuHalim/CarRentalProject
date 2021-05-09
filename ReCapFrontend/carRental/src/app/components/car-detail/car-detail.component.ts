@@ -14,11 +14,13 @@ export class CarDetailComponent implements OnInit {
  
   carDetails : CarDeatils[] = []; 
   carDetail: CarDeatils;
-  carImages : CarImage[];
+
+  carImages : CarImage[] = [];
+
   dataLoaded = false;
   carId:CarDeatils;
   currentCar: CarDeatils;
-  imageBasePath:'https://localhost:44394/';
+  imageBasePath:'https://localhost:44394';
   
 
   constructor( private carDetailService:CarDetailService, 
@@ -33,6 +35,8 @@ export class CarDetailComponent implements OnInit {
         this.getCarsByColor(params["colorId"])
       }else if(params["carId"]){
         this.getCarDetailsById(params["carId"]);
+        this.getCarImagesById(params["carId"])
+
       }else{
         this.getCarDetails();
       }
@@ -83,6 +87,8 @@ export class CarDetailComponent implements OnInit {
   getCarImagesById(carId: number) {
     this.carImageService.getCarImageById(carId).subscribe((response) => {
       this.carImages = response.data;
+      console.log(response.data);
+
     });
   }
  
