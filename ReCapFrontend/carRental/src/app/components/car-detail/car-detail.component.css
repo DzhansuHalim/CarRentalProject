@@ -37,24 +37,46 @@ td{
     font-family: Roboto,Helvetica,Arial,sans-serif;
 }
 
-
 .btn-info {
     color: #316aa4;
-    border-color: #316aa4;
+    border-color: #316aa4; 
     background-color: white ;
 } 
 
 .btn-info:hover{
     color: white;
-    background-color: #316aa4;
+    background-color: #3d7d94;
+}
+
+.btn-danger{
+    color: #cf2323;
+    border-color: #c52b2b;
+    background-color: white ;
+}
+
+.btn-danger:hover{
+    color: white;
+    background-color: #d6343a;
 }
 
 .btn{
     margin: 6px;
-    
 }
 
 svg{
     margin-right: 7px;
 }
 
+img{
+    width: 100%;
+    border-radius: 7px;
+    padding: 1em;
+}
+
+.style{
+    background-color: #316aa4;
+    color: rgb(233, 223, 223);
+    margin: 1px;
+    border-radius: 6px;
+
+}

@@ -1,23 +1,42 @@
-<div class="row">
-    <div class="col-md-6">
-        <app-add-user></app-add-user>
-    </div>
-    <div class="col-md-6">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Email</th>
+
+<div class="container style">
+    <div class="row">
+        <div class="col-md-6" >
+            <app-add-user *ngIf = "register == true && login == false"></app-add-user>
+            <div *ngIf = "register == false && login == true" class="info d-flex justify-content-center align-items-center"> 
+                <div>
+                    <h1>Welcome to CarRental!</h1>
+                    <p>To Keep connected with us please login with your personal info</p>
+                    <button  (click)="setRegister()" type="button" class="btn btn-info"> Sing up </button> 
+                </div>  
+            </div>
+        </div>
+    
+        <div class="col-md-6">
+            <!-- <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tr *ngFor = "let user of users">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
                 </tr>
-            </thead>
-            <tr *ngFor = "let user of users">
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.email}}</td>
-            </tr>
-        </table>
-        <app-login></app-login>   
+            </table> -->
+            <app-login *ngIf = "register == false && login == true"></app-login> 
+            <div *ngIf = "register == true && login == false" class="info d-flex justify-content-center align-items-center"> 
+                <div>
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button  (click)="setLogin()" type="button" class="btn btn-info"> Sing in </button> 
+                </div>  
+            </div>
+        </div>
     </div>
 </div>
+
 

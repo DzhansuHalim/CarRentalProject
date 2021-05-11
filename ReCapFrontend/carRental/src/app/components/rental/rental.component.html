@@ -1,26 +1,41 @@
-<div class="row">
-    <div class="col-md-7">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Car</th>
-                    <th>Customer</th>
-                    <th>Rent date</th>
-                    <th>Return Date</th>
-                </tr>
-            </thead>
-            <tr *ngFor = "let rental of rentals">
-                <td>{{rental.rentalId}}</td>
-                <td>{{rental.carId}}</td>
-                <td>{{rental.customerId}}</td>
-                <td>{{rental.rentDate}}</td>
-                <td>{{rental.returnDate}}</td>
-            </tr>
-        </table>
-    </div>
-    <div class="col-md-5">
-        <app-add-rental></app-add-rental>
+<div class="container">
+    <img class="img" src="assets/img/color.jpg">
+    <div class="row">
+        <div class="col-md-7 style">
+            <div class="card">
+                <div class="card-header card-header-primary center">
+                  <h4 class="card-title">List of rentals</h4>
+                </div> 
+                  <div class="card-body">
+                      <div class="table">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Car</th>
+                                    <th>Customer</th>
+                                    <th>Rent date</th>
+                                    <th>Return Date</th>
+                                </tr>
+                            </thead>
+                            <tr *ngFor = "let rental of rentals">
+                                <td>{{rental.rentalId}}</td>
+                                <td>{{rental.carId}}</td>
+                                <td>{{rental.customerId}}</td>
+                                <td>{{rental.rentDate}}</td>
+                                <td>{{rental.returnDate}}</td>
+                            </tr>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+
+            
+        </div>
+        <div class="col-md-5 style">
+            <app-add-rental></app-add-rental>
+        </div>
     </div>
 </div>
+
 

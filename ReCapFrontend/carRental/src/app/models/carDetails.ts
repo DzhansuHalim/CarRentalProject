@@ -10,4 +10,5 @@ export interface CarDeatils{
     carImage:string;
     brandId:string;
     colorId:string;
+    carImages:CarDeatils[];
 }

@@ -17,7 +17,6 @@ namespace Business.Concrete
     public class BrandManager : IBrandService
     {
         IBrandDal _brandDal;
-
         public BrandManager(IBrandDal brandDal)
         {
             _brandDal = brandDal;
@@ -39,13 +38,14 @@ namespace Business.Concrete
 
         public IResult Delete(Brand brand)
         {
+
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.BrandDeleted);
         }
 
         public IDataResult<List<Brand>> GetAll()
         {
-            if (DateTime.Now.Hour == 10)
+            if (DateTime.Now.Hour == 23)
             {
                 return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
             }

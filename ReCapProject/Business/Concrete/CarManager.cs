@@ -14,10 +14,17 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
+        ICarImageDal _carImageDal;
+        IRentalDal _rentalDal;
 
-        public CarManager(ICarDal carDal)
+
+
+        public CarManager(ICarDal carDal , ICarImageDal carImageDal, IRentalDal rentalDal)
         {
             _carDal = carDal;
+            _carImageDal = carImageDal;
+            _rentalDal = rentalDal;
+
         }
 
         public IResult Create(Car car)
@@ -28,8 +35,31 @@ namespace Business.Concrete
 
         public IResult Delete(Car car)
         {
-            _carDal.Delete(car);
+            var deleteRentals = _rentalDal.GetAll(c => c.CarId == car.CarId);
+            var deleteItems = _carImageDal.GetAll(c => c.CarId == car.CarId);
+
+            if(deleteRentals != null)
+            {
+                foreach (var deleteRental in deleteRentals)
+                {
+                    _rentalDal.Delete(deleteRental);
+
+                }
+            }
+
+            if( deleteItems != null)
+            {
+                foreach (var item in deleteItems)
+                {
+                    _carImageDal.Delete(item);
+
+                }
+            }
+
+              _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
+
+
         }
 
         public IDataResult<List<Car>> GetAll()

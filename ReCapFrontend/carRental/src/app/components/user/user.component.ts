@@ -11,6 +11,8 @@ export class UserComponent implements OnInit {
 
   users : User[] = [];
   constructor( private userService:UserService) { }
+  login = true;
+  register = false;
 
   ngOnInit(): void {
     this.getUsers();
@@ -20,5 +22,15 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe(response => {
       this.users = response.data;
     })
+  }
+
+  setLogin(){
+    this.login = true;
+    this.register = false;
+  }
+
+  setRegister(){
+    this.login = false;
+    this.register = true;
   }
 }

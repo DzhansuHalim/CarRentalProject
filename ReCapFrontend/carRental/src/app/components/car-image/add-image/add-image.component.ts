@@ -17,7 +17,7 @@ export class AddImageComponent implements OnInit {
 
   imageAddForm : FormGroup;
   carImages : CarImage[];
-  selectedFile:File;
+  selectedFile:File; 
   cars : Car[];
 
   
@@ -49,7 +49,7 @@ export class AddImageComponent implements OnInit {
 
   createImageAddForm(){ 
     this.imageAddForm = this.formBuilder.group({
-      carId:["", Validators.required]
+      // carId:["", Validators.required]
     })
   } 
 

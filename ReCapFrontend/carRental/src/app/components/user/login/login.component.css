@@ -1,0 +1,27 @@
+.form-floating{
+    margin: 1em;
+}
+
+.form-floating label{
+    color: rgb(145, 137, 137);
+}
+
+
+.form-floating input{
+    min-width: 18em;
+}
+
+.btn-info {
+    background-color: #316aa4;
+    color: white;
+    border-radius: 14px;
+} 
+
+.btn-info:hover{
+    color: white;
+    background-color: #4876a3;
+}
+
+.btn{
+    margin: 6px;
+}

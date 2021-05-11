@@ -14,6 +14,9 @@ import {
   NgxMatNativeDateModule,
   NgxMatTimepickerModule
 } from '@angular-material-components/datetime-picker';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
@@ -59,7 +62,7 @@ import { IndexComponent } from './components/index/index.component';
     CarImageComponent,
     AddImageComponent,
     AddRentalComponent,
-    IndexComponent,
+    IndexComponent
     
   ],
   imports: [
@@ -80,12 +83,15 @@ import { IndexComponent } from './components/index/index.component';
     NgxMatNativeDateModule,
 
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+
+    NgImageSliderModule
 
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

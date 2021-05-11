@@ -8,6 +8,10 @@ td{
     color: rgb(124, 116, 116);
 }
 
+.style{
+    margin-top: 2em;
+}
+
 .card-body{
     box-shadow: 5px 10px 18px #bbb9d3;
 }
@@ -58,3 +62,18 @@ svg{
     margin-right: 7px;
 }
 
+.img{
+    opacity:0.8;
+    width: 100%;
+}
+
+.btn-danger{
+    color: #cf2323;
+    border-color: #c52b2b;
+    background-color: white ;
+}
+
+.btn-danger:hover{
+    color: white;
+    background-color: #d6343a;
+}

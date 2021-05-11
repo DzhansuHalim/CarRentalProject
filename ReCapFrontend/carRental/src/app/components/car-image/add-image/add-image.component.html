@@ -1,34 +1,33 @@
-<div class="content">
+<div class="content style">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
-                <h5>Add image</h5> 
-            </div>
+          <div class="card-header card-header-primary center">
+            <h4 class="card-title ">Add image</h4>
+          </div> 
             <div class="card-body">
-                <form [formGroup] = "imageAddForm">  
-                     <div class="form-floating mb-3">
-                        <select class="form-select" id="carId" formControlName="carId">
-                          <option *ngFor="let car of cars" [ngValue]="car.carId">
-                            {{car.carId}}
-                          </option>
-                        </select> 
-                        <label for="carId">Cars</label>
-                      </div> 
-                      <div class="mb-3">
-                        <label for="imageFile">Resim Seçin</label>
-                        <div class="form-group">
-                          <input 
-                            type="file"
-                            (change)="onFileChanged($event)"
-                            class="form-control"
-                          />
-                        </div>
+                <form [formGroup] = "imageAddForm">
+                  <!-- <div class="form-floating mb-3">
+                      <select class="form-select" id="carId" formControlName="carId">
+                        <option *ngFor="let car of cars" [ngValue]="car.carId">
+                          {{car.carId}} {{car.descriptionCar}}
+                        </option>
+                      </select> 
+                      <label for="carId">Select the car</label>
+                    </div>  -->
+                    <div class="mb-3">
+                      <div class="form-group">
+                        <input 
+                          type="file"
+                          (change)="onFileChanged($event)"
+                          class="form-control"/>
                       </div>
+                    </div>
                 </form> 
+                <div class="card-footer">
+                  <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
+              </div>
             </div>
-            <div class="card-footer">
-                <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
-            </div>
+            
         </div>
     </div>  
 </div>

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -17,24 +18,28 @@ export class AddCarComponent implements OnInit {
   carAddForm : FormGroup;
   brands : Brand[];
   colors: Color[];
+  selectedFile:File; 
+  image = false;
+
 
   constructor(  
     private formBuilder:FormBuilder, 
     private carService : CarService,
     private colorService : ColorService,
     private brandService : BrandService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private carImageService:CarImageService) { }
 
   ngOnInit(): void {
     this.createCarAddForm();
     this.getColor();
     this.getBrand();
   }
-
+ 
   getColor(){
     this.colorService.getColors().subscribe((response) => {
       this.colors = response.data;
-    });
+    }); 
   }
 
   getBrand(){
@@ -42,6 +47,7 @@ export class AddCarComponent implements OnInit {
       this.brands = response.data;
     }); 
   }
+
   createCarAddForm(){
     this.carAddForm = this.formBuilder.group({
       modelYear:["", Validators.required],
@@ -56,7 +62,9 @@ export class AddCarComponent implements OnInit {
     if(this.carAddForm.valid){ 
       let brandModel = Object.assign({}, this.carAddForm.value)
       this.carService.addCar(brandModel).subscribe(response => {
-        this.toastrService.success(response.message) 
+        this.toastrService.success(response.message);
+        this.image = true;
+        localStorage.setItem("carId",response.data.carId.toString());
       }, responseError=>{
 
         if(responseError.error.message == null){
@@ -73,5 +81,12 @@ export class AddCarComponent implements OnInit {
     }else{
       this.toastrService.error("The form is invalid!")
     }
+  }
+
+
+ 
+
+  onFileChanged(event:any) {
+    this.selectedFile = event.target.files[0]
   }
 }

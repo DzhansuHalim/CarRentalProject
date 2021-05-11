@@ -1,9 +1,9 @@
 <div class="content">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
-                <h5>Add brand</h5> 
-            </div>
+            <div class="card-header card-header-primary center">
+                <h4 class="card-title ">Add brand</h4>
+            </div> 
             <div class="card-body">
                 <form [formGroup] = "brandAddForm">                    
                     <div class="mb-3">
@@ -13,10 +13,10 @@
                             formControlName="brandName" class="form-control" placeholder="ex. Volvo"/>
                         </div>
                     </div>                 
-                </form>  
-            </div>
-            <div class="card-footer">
-                <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
+                </form>   
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-primary" (click)= "add()">Add</button>
+                </div>
             </div>
         </div>
     </div>  

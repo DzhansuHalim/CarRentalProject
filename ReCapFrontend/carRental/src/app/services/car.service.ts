@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CarDetailComponent } from '../components/car-detail/car-detail.component';
 import { Car } from '../models/car';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +33,15 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
 
-  addCar(car : Car): Observable<ResponseModel>{
+  addCar(car : Car): Observable<SingleResponseModel<Car>>{
     let newPath = this.apiUrl + "/add"
-    return this.httpClient.post<ResponseModel>(newPath, car)
+    return this.httpClient.post<SingleResponseModel<Car>>(newPath,car)
   }
-
+  
+  deleteCar(car : Car): Observable<SingleResponseModel<Car>>{
+    let newPath = this.apiUrl + "/delete"
+    return this.httpClient.post<SingleResponseModel<Car>>(newPath,car)
+  }
+  
+ 
 }
