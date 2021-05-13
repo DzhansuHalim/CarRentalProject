@@ -41,11 +41,26 @@ td{
 }
 
 
+.btn-info {
+    color: #316aa4;
+    border-color: #316aa4;
+    background-color: white ;
+} 
+
+.btn-info:hover{
+    color: white;
+    background-color: #316aa4;
+}
+
+.btn{
+    margin: 6px;
+    
+}
 
 .card-title, .card-category{
     color: honeydew;
     font-family: Roboto,Helvetica,Arial,sans-serif;
-}
+} 
 
 button{
     background-color: #316aa4;

@@ -14,10 +14,7 @@
               <a class="nav-link" href="#" routerLink = "/cars" >Cars</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" routerLink = "/colors" >Colors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" routerLink = "/brands">Brands</a>
+              <a class="nav-link" href="#" routerLink = "/colors" >Colors / Brands</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" routerLink = "/rentals" >Rentals</a>
@@ -25,12 +22,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#" routerLink = "/customers">Customers</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" routerLink = "/users" >User Profile</a>
-            <!-- </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#" routerLink = "/carImages" >Images</a>
-            </li> -->
+
+            <li class="nav-item" *ngIf="setLogin">
+              <a class="nav-link" href="#" routerLink = "/users" >Login</a>
+            </li>
+            
+              <li class="nav-item" *ngIf="setLogout" (click)="logout()">
+                <a class="nav-link" href="#" routerLink = "/users">Logout</a>
+              </li>
+    
           </ul> 
         </div>
       </div>

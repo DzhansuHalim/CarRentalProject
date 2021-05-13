@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -27,12 +28,14 @@ namespace Business.Concrete
 
         }
 
+        [SecuredOperation("admin")]
         public IResult Create(Car car)
         {
             _carDal.Create(car);
             return new SuccessResult(Messages.CarAdded);
         }
 
+        [SecuredOperation("admin")]
         public IResult Delete(Car car)
         {
             var deleteRentals = _rentalDal.GetAll(c => c.CarId == car.CarId);
@@ -102,6 +105,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == colorId));
         }
 
+        [SecuredOperation("admin")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);

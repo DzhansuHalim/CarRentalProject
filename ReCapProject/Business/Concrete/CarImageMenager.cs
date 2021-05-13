@@ -12,6 +12,7 @@ using System.Text;
 using Core.Utilities.Helper;
 using System.Linq;
 using System.IO;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -24,7 +25,7 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
-
+        [SecuredOperation("admin")]
         public IResult Create(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImagesCountCorrect(carImage.CarId));
@@ -39,7 +40,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CreatedImage);
         }
 
-
+        [SecuredOperation("admin")]
         public IResult Delete(IFormFile file, CarImage carImage)
         {
             FileHelper.Delete(carImage.ImagePath);
@@ -73,6 +74,7 @@ namespace Business.Concrete
 
         }
 
+        [SecuredOperation("admin")]
         public IResult Update(IFormFile file,CarImage carImage)
         {
             ////carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.CarId == carImage.CarImageId).ImagePath, file);

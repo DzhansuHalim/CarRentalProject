@@ -13,6 +13,7 @@ export class ColorComponent implements OnInit {
   colors : Color[] = [];
   currentColor : Color;
   dataLoaded = false;
+  colorAdd = false;
 
   constructor( private colorService:ColorService) { } 
 
@@ -29,6 +30,10 @@ export class ColorComponent implements OnInit {
 
   setCurrentColor( color : Color){
     this.currentColor = color;
+  }
+
+  addColor(){
+    this.colorAdd = true;
   }
 
   getCurrentColorClass(color : Color){

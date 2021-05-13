@@ -15,6 +15,9 @@ export class CarComponent implements OnInit {
   cars : Car[] = []; 
   currentCar : Car;
   selectedCar: Car;
+  image = false;
+  add =false;
+
   constructor( private carService:CarService, 
     private activatedRoute:ActivatedRoute,
     private toastrService:ToastrService) { }
@@ -39,11 +42,37 @@ export class CarComponent implements OnInit {
   }
 
   deleteCar( car : Car){
+    console.log(this.currentCar = car);
     this.carService.deleteCar(car).subscribe(response => {
       this.toastrService.success(response.message);
-      localStorage.setItem("carId",response.data.descriptionCar)
+    }, responseError=>{
+
+      if(responseError.error.message == null){
+        for (let i = 0; i < responseError.error.Errors.length; i++) {
+          this.toastrService.error(responseError.error.Errors[i].ErrorMessage)          
+        }
+      }
+      else{
+        this.toastrService.error(responseError.error.message)          
+      }
 
     })
+
+
+    
+  }
+
+  addImage(car : Car){
+    this.image = true; 
+    this.add = false;
+    this.currentCar = car;
+    localStorage.setItem("carId",this.currentCar.carId.toString())
+  }
+
+  
+  addCar(){
+    this.image = false;
+    this.add = true;
   }
 
   getCarsByBrand(brandId : number){

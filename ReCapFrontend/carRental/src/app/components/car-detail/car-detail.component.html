@@ -2,12 +2,30 @@
     <div *ngIf = "dataLoaded == false" class="spinner-border text-warning" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
+
+
+
+
     <div class="row">
+        
         <div class="col-md-7">
+
             <div class="card">
+
                 <div class="card-header card-header-primary center">
                     <h4 class="card-title ">List of Cars</h4>
-                </div>    
+                </div>  
+
+                <div class="search">
+                    <div>
+                        <label for="exampleFormControlInput1" class="form-label">Search </label>
+                        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="search car brand">
+                    </div>
+                    <div *ngIf="filterText.length > 2" class="alert alert-success">
+                        <p>{{filterText}} searched</p>
+                    </div>  
+                </div>
+                
                 <div class="card-body">
                     <div class="table" *ngIf = "dataLoaded == true">
                         <table class="table">
@@ -20,11 +38,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor =  "let carDetail of carDetails">
-                                    <td>{{carDetail.brandName}}</td>
+                                <tr *ngFor =  "let carDetail of carDetails | filterPipe:filterText">
+                                    <td>{{carDetail.brandName |uppercase}}</td>
                                     <td>{{carDetail.colorName}}</td>
                                     <td>{{carDetail.carDescription}}</td>
-                                    <td>{{carDetail.dailyPrice}}</td>
+                                    <td>{{carDetail.dailyPrice |currency  }}</td>
                                     <td>
                                         <button
                                             routerLink = "/carDetails/car/{{carDetail.carId}}" type="button" class="btn btn-info"> 
@@ -34,6 +52,12 @@
                                             </svg>Info
                                         </button>                                    
                                     </td>
+                                    <td>
+                                        <button  (click)="addRental(carDetail)"
+                                            type="button" routerLink = "/carDetails"  class="btn btn-info"> 
+                                            Rent the car
+                                        </button> 
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -41,26 +65,34 @@
                 </div>
             </div>
         </div>    
-  
-        <div *ngIf = "carDetail"  class="d-flex justify-content-evenly col-md-5 " >
-            <div class="shadow-lg p-3 mb-5 bg-body rounded ">       
-                <div class="carousel-inner" >
-                    <div  *ngFor="let carImage of carImages;index as i">
-                      <img
-                      src="{{ imageBasePath }}{{ carImage.imagePath }}"
-                      class="d-block w-100"
-                      alt="..."/>
-                    </div>
-                  </div>
-                  
-                <ul class="list-group">
-                    <li class="list-group-item style">Brand: {{carDetail.brandName}}</li>
-                    <li class="list-group-item style">Colors: {{carDetail.colorName}}</li>
-                    <li class="list-group-item style">Description: {{carDetail.carDescription}}</li>
-                    <li class="list-group-item style">Daily price: {{carDetail.dailyPrice}}</li>
-                </ul>
-            </div>                    
+        <div class="col-md-5">
+            <div class="d-flex justify-content-evenly" >
+                <div  *ngIf = "carDetailshow">
+                    <div class="shadow-lg p-3 mb-5 bg-body rounded ">       
+                        <div class="carousel-inner" >
+                            <div  *ngFor="let carImage of carImages;index as i">
+                              <img
+                              src="{{ imageBasePath }}{{ carImage.imagePath }}"
+                              class="d-block w-100"
+                              alt="..."/>
+                            </div>
+                          </div>
+                          
+                        <ul class="list-group">
+                            <li class="list-group-item style">Brand: {{carDetail.brandName}}</li>
+                            <li class="list-group-item style">Colors: {{carDetail.colorName}}</li>
+                            <li class="list-group-item style">Description: {{carDetail.carDescription}}</li>
+                            <li class="list-group-item style">Daily price: {{carDetail.dailyPrice}}</li>
+                        </ul>
+                    </div>    
+                </div>
+                
+                <div *ngIf="rentTheCar">
+                    <app-add-rental></app-add-rental>
+                </div>                
+            </div>
         </div>
+
     </div>
 
     

@@ -10,7 +10,7 @@ import { CarService } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-add-image',
-  templateUrl: './add-image.component.html',
+  templateUrl: './add-image.component.html', 
   styleUrls: ['./add-image.component.css']
 })
 export class AddImageComponent implements OnInit {
@@ -49,16 +49,16 @@ export class AddImageComponent implements OnInit {
 
   createImageAddForm(){ 
     this.imageAddForm = this.formBuilder.group({
-      // carId:["", Validators.required]
+       //carId:["", Validators.required]
     })
   } 
 
   add(){
     if(this.imageAddForm.valid){
       let imageModel = Object.assign({}, this.imageAddForm.value)
-      this.carImageService.addImage(imageModel,this.selectedFile).subscribe(response => {
+      this.carImageService.addImage2(this.selectedFile).subscribe(response => {
         this.toastrService.success(response.message)
-        this.getCarImages();
+        
       }, responseError=>{
   
         if(responseError.error.message == null){
@@ -68,7 +68,7 @@ export class AddImageComponent implements OnInit {
          }
          else{
           this.toastrService.error(responseError.error.message)          
-        }
+        } 
 
       })
 

@@ -55,7 +55,7 @@ export class AddRentalComponent implements OnInit {
 
   createRentalAddForm(){
     this.rentalAddForm = this.formBuilder.group({
-      carId:["", Validators.required],
+      carId : localStorage.getItem("carId"), 
       customerId: ["", Validators.required],
       rentDate: ["", Validators.required],
       returnDate: ["", Validators.required]
@@ -65,8 +65,8 @@ export class AddRentalComponent implements OnInit {
   add(){
     if(this.rentalAddForm.valid){ 
       let rentalModel = Object.assign({}, this.rentalAddForm.value)
-      console.log(rentalModel);
-      this.rentalService.addRental(rentalModel).subscribe(response => {
+      this.rentalService.addRental(rentalModel).subscribe(response => {  
+        console.log(response.data)
         this.toastrService.success(response.message) 
       }, responseError=>{
 

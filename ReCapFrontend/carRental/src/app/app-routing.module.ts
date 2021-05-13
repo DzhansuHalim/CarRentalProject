@@ -18,28 +18,33 @@ import { RentalComponent } from './components/rental/rental.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { UserComponent } from './components/user/user.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [ 
   {path: "", pathMatch:"full", component:IndexComponent},
 
-  {path: "cars", component:CarComponent},
-  {path: "cars/add", component:AddCarComponent},
+  {path: "cars", component:CarComponent ,canActivate:[LoginGuard]},
+  {path: "cars/add", component:CarComponent, canActivate:[LoginGuard]},
+  {path: "cars/delete", component:CarComponent, canActivate:[LoginGuard]}, 
+  {path: "carImages/add", component:CarComponent,canActivate:[LoginGuard]},
+
 
   {path: "carImages", component:CarImageComponent},
-  {path: "carImages/add", component:AddImageComponent},
 
-  {path: "colors", component:ColorComponent},
-  {path: "colors/add", component:AddColorComponent},
+  {path: "colors", component:ColorComponent, canActivate:[LoginGuard]},
+  {path: "colors/add", component:ColorComponent, canActivate:[LoginGuard]},
 
 
-  {path: "brands", component:BrandComponent},
-  {path: "brands/add", component:AddBrandComponent},
+  {path: "brands", component:ColorComponent, canActivate:[LoginGuard]},
+  {path: "brands/add", component:ColorComponent ,canActivate:[LoginGuard]},
 
-  {path: "rentals", component:RentalComponent},
-  {path: "rentals/add", component:AddRentalComponent},
+  {path: "rentals", component:RentalComponent,canActivate:[LoginGuard]},
+  {path: "rentals/add" , component:RentalComponent, canActivate:[LoginGuard]},
+  
 
-  {path: "customers", component:CustomerComponent},
-  {path: "customers/add", component:AddCustomerComponent},
+
+  {path: "customers", component:CustomerComponent,canActivate:[LoginGuard]},
+  {path: "customers/add", component:CustomerComponent, canActivate:[LoginGuard]},
 
 
   {path: "users", component:UserComponent},
@@ -47,12 +52,11 @@ const routes: Routes = [
   {path: "users/login", component:LoginComponent},
 
 
-
-
   {path: "carDetails", component:IndexComponent},
   {path: "carDetails/car/:carId", component:IndexComponent},
   {path: "carDetails/brand/:brandId", component:IndexComponent},
   {path: "carDetails/color/:colorId", component:IndexComponent},
+  {path: "rentals/add/rental", component:IndexComponent}
 
 ];
 

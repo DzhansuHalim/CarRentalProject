@@ -22,11 +22,15 @@
                                 <td>{{customer.companyName}}</td>
                             </tr>
                         </table>
+                        <button  (click)="addCustomer()"
+                            type="button" class="btn btn-info"> 
+                            Add Customer
+                        </button> 
                       </div>
                   </div>
               </div>
         </div>
-        <div class="col-md-6 style">
+        <div class="col-md-6 style" *ngIf = "customerAdd">
             <app-add-customer></app-add-customer>
         </div>
     </div>

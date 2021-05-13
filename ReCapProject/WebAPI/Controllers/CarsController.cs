@@ -137,7 +137,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpPut("update")]
+        [HttpPost("update")]
         public IActionResult Update(Car product)
         {
             var result = _carService.Update(product);

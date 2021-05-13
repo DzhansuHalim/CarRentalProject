@@ -42,6 +42,12 @@ export class CarService {
     let newPath = this.apiUrl + "/delete"
     return this.httpClient.post<SingleResponseModel<Car>>(newPath,car)
   }
+
+  editCar(car : Car): Observable<SingleResponseModel<Car>>{
+    let newPath = this.apiUrl + "/update"
+    return this.httpClient.post<SingleResponseModel<Car>>(newPath,car)
+  }
+  
   
  
 }

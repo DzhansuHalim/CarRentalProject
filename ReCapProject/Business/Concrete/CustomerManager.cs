@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -19,12 +20,14 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
+        [SecuredOperation("admin")]
         public IResult Create(Customer customer)
         {
             _customerDal.Create(customer);
             return new SuccessResult(Messages.CustomerAdded);
         }
 
+        [SecuredOperation("admin")]
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
@@ -41,6 +44,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == id));
         }
 
+        [SecuredOperation("admin")]
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);

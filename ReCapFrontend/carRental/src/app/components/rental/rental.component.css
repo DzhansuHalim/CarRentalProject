@@ -18,6 +18,22 @@ td{
     margin-bottom: 2em;
 }
 
+.btn-info {
+    color: #316aa4;
+    border-color: #316aa4;
+    background-color: white ;
+} 
+
+.btn-info:hover{
+    color: white;
+    background-color: #316aa4;
+}
+
+.btn{
+    margin: 6px;
+    
+}
+
 .card-body{
     box-shadow: 5px 10px 18px #bbb9d3;
 }

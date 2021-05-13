@@ -10,6 +10,7 @@ import { RentalService } from 'src/app/services/rental.service';
 export class RentalComponent implements OnInit {
 
   rentals : Rental[] = [];
+  rentalAdd=false;
   constructor( private rentalService:RentalService) { }
 
   ngOnInit(): void {
@@ -20,5 +21,9 @@ export class RentalComponent implements OnInit {
     this.rentalService.getRentals().subscribe(response => {
       this.rentals = response.data;
     })
+  }
+
+  addRental(){
+    this.rentalAdd = true;
   }
 }

@@ -6,6 +6,7 @@ import { CarDeatils } from '../models/carDetails';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
 import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,9 @@ export class RentalService {
     return this.httpClient.get<ListResponseModel<Rental>>(newPath);
   }
 
-  addRental(rental : Rental): Observable<ResponseModel>{
+  addRental(rental : Rental): Observable<SingleResponseModel<Rental>>{
     let newPath = this.apiUrl + "/add"
-    return this.httpClient.post<ResponseModel>(newPath, rental)
+    return this.httpClient.post<SingleResponseModel<Rental>>(newPath, rental)
   }
 
   

@@ -11,7 +11,7 @@ import { ResponseModel } from '../models/responseModel';
 export class CarImageService {
   apiUrl = "https://localhost:44394/api/";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { } 
 
   getCarImageById(carid:number):Observable<ListResponseModel<CarImage>>{  
     let newPath =  this.apiUrl + "carImages/getimagesbycarid?id="+carid;
@@ -25,7 +25,7 @@ export class CarImageService {
 
 
 
-  addImage(carImage:CarImage,file:any):Observable<ResponseModel>{
+  addImage2(file:any):Observable<ResponseModel>{
     const uploadData = new FormData();
     uploadData.append('Image', file, file.name); 
     uploadData.append("CarId",localStorage.getItem("carId"));
@@ -33,5 +33,12 @@ export class CarImageService {
     return this.httpClient.post<ResponseModel>(newPath,uploadData)
   }
 
+  addImage(carImage:CarImage,file:any):Observable<ResponseModel>{
+    const uploadData = new FormData();
+    uploadData.append('Image', file, file.name); 
+    uploadData.append("CarId",carImage.carId.toString());
+    let newPath=this.apiUrl+"carImages/add";
+    return this.httpClient.post<ResponseModel>(newPath,uploadData)
+  }
 
 }

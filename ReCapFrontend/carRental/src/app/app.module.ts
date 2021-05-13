@@ -40,6 +40,7 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { AddImageComponent } from './components/car-image/add-image/add-image.component';
 import { AddRentalComponent } from './components/rental/add-rental/add-rental.component';
 import { IndexComponent } from './components/index/index.component';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { IndexComponent } from './components/index/index.component';
     CarImageComponent,
     AddImageComponent,
     AddRentalComponent,
-    IndexComponent
+    IndexComponent,
+    FilterPipePipe
     
   ],
   imports: [

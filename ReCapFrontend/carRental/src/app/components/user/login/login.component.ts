@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
+  router="";
+
   constructor(
     private formBuilder:FormBuilder, 
     private authService: AuthService,
@@ -33,11 +35,16 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({},this.loginForm.value) 
 
       this.authService.login(loginModel).subscribe(response =>{
+        this.router = "/carDetails";
         this.toastrService.info(response.message)
         localStorage.setItem("token",response.data.token)
       },responseError => {
         this.toastrService.error(responseError.error)
+        localStorage.removeItem("token")
       })
+    }else{
+      this.router = "/users";
+      this.toastrService.error("The user is invalid!")
     }
   }
 }

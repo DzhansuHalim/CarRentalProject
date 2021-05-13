@@ -11,14 +11,18 @@
                          *ngFor="let brand of brands">
                         {{brand.brandName}}</li>
                     </ul>
-                  </div>
+                    <button  (click)="addBrand()"
+                      type="button"  class="btn btn-info"> 
+                      Add Brand
+                    </button> 
+                  </div> 
+                </div>
               </div>
-              <div class="style">
+              <div class="style" *ngIf = "brandAdd">
                 <app-add-brand></app-add-brand>
               </div>
         </div>
     </div>
-</div>
 
 
 

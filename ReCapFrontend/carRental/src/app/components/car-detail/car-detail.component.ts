@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
 import { CarDeatils } from 'src/app/models/carDetails';
 import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
@@ -20,9 +21,15 @@ export class CarDetailComponent implements OnInit {
   carDetail: CarDeatils;
   carImages : CarImage[];
 
+  filterText = "";
+
   brands: Brand[];
   currentBrand:Brand;
   colors: Color[];
+  currentCar:CarDeatils;
+
+  rentTheCar=false;
+  carDetailshow = false;
 
   dataLoaded = false;
   carId:CarDeatils;
@@ -43,7 +50,7 @@ export class CarDetailComponent implements OnInit {
         this.getCarsByColor(params["colorId"])
       }else if(params["carId"]){
         this.getCarDetailsById(params["carId"]);
-        this.getCarImagesById(params["carId"])
+        this.getCarImagesById(params["carId"]);
 
       }else{
         this.getCarDetails();
@@ -79,9 +86,11 @@ export class CarDetailComponent implements OnInit {
 
   getCarDetailsById(carId:number){
     this.carDetailService.getCarDetailsById(carId).subscribe(response => {
-      this.carDetail = response.data; 
+      this.carDetail = response.data;
+      this.rentTheCar = false;
+      this.carDetailshow = true;
       console.log(response.data);
-       
+
     })
   }  
 
@@ -113,6 +122,14 @@ export class CarDetailComponent implements OnInit {
         return 'https://localhost:44394/Images/default.jpg'
       }
   }
+
+  addRental(car:CarDeatils){
+    this.currentCar = car;
+    this.rentTheCar=true;
+    this.carDetailshow = false;
+    localStorage.setItem("carId", this.currentCar.carId.toString())
+  }
+
 
 
 

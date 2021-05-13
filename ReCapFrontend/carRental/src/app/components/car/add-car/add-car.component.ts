@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -17,6 +18,7 @@ export class AddCarComponent implements OnInit {
 
   carAddForm : FormGroup;
   brands : Brand[];
+  cars: Car[];
   colors: Color[];
   selectedFile:File; 
   image = false;
@@ -58,13 +60,19 @@ export class AddCarComponent implements OnInit {
     })
   }
 
+  getCars(){
+    this.carService.getCars().subscribe((response) => {
+      this.cars = response.data;
+    }); 
+  }
+  
   add(){
     if(this.carAddForm.valid){ 
-      let brandModel = Object.assign({}, this.carAddForm.value)
-      this.carService.addCar(brandModel).subscribe(response => {
+      let carModel = Object.assign({}, this.carAddForm.value)
+      this.carService.addCar(carModel).subscribe(response => {
         this.toastrService.success(response.message);
         this.image = true;
-        localStorage.setItem("carId",response.data.carId.toString());
+        this.getCars();
       }, responseError=>{
 
         if(responseError.error.message == null){

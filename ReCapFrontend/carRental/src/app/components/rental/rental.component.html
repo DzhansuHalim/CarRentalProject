@@ -26,13 +26,15 @@
                                 <td>{{rental.returnDate}}</td>
                             </tr>
                         </table>
+                        <button  (click)="addRental()"
+                            type="button" class="btn btn-info"> 
+                            Add Rental
+                        </button> 
                       </div>
                   </div>
-              </div>
-
-            
+              </div>       
         </div>
-        <div class="col-md-5 style">
+        <div class="col-md-5 style" *ngIf = "rentalAdd">
             <app-add-rental></app-add-rental>
         </div>
     </div>
