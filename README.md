@@ -61,7 +61,37 @@
         <li>Services</li>   
     </ul>
     
-<div>
-    <img src="Images/img1.png" width="900">
-</div>
     
+<table>
+    <tr>
+        <th> <img src="Images/img1.png"> </th>
+        <th> <img src="Images/img3.png"> </th>
+    </tr>
+</table>
+
+<h1></h1>
+
+<table>
+    <tr>
+        <th> <img src="Images/img4.png"> </th>
+        <th> <img src="Images/img5.png"> </th>
+    </tr>
+</table>
+
+<h1></h1>
+
+<table>
+    <tr>
+        <th> <img src="Images/img6.png"> </th>
+        <th> <img src="Images/img7.png"> </th>
+    </tr>
+</table>
+
+<h1></h1>
+
+<table>
+    <tr>
+        <th> <img src="Images/img8.png"> </th>
+        <th> <img src="Images/img9.png"> </th>
+    </tr>
+</table>
