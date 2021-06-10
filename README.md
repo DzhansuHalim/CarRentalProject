@@ -1,4 +1,4 @@
-# CarRental_Project
+# .Net Core and Angular
 
 1. <b>Basic expressions</b>
     <ul>     
